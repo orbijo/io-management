@@ -4,7 +4,7 @@ const sequence = prompt("Enter request sequence (separated by spaces): ").split(
 const numTracks = 200;
 
 // display sorted array and total seek time
-// just change the function
+// just change the function depending on the algorithm to use
 var ioArray = clook(head, sequence)
 
 console.log(ioArray)
