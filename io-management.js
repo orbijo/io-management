@@ -4,7 +4,9 @@ const sequence = prompt("Enter request sequence (separated by spaces): ").split(
 const numTracks = 200;
 
 // display sorted array and total seek time
-var ioArray = cscan(head, sequence)
+// just change the function
+var ioArray = clook(head, sequence)
+
 console.log(ioArray)
 console.log(totalSeekTime(ioArray))
 
@@ -41,6 +43,23 @@ function cscan(head, sequence) {
     const sortedArr = [head, ...sequence]
     sortedArr.push(numTracks-1)
     sortedArr.push(0)
+    sortedArr.sort((a, b) => a - b)
+    const upperHalf = sortedArr.slice(sortedArr.indexOf(head))
+    const lowerHalf = sortedArr.slice(0, sortedArr.indexOf(head))
+    return upperHalf.concat(lowerHalf)
+}
+
+function look(head, sequence){
+    const sortedArr = [head, ...sequence]
+    sortedArr.sort((a, b) => a - b)
+    const upperHalf = sortedArr.slice(sortedArr.indexOf(head))
+    const lowerHalf = sortedArr.slice(0, sortedArr.indexOf(head))
+    lowerHalf.sort((a, b) => b - a)
+    return upperHalf.concat(lowerHalf)
+}
+
+function clook(head, sequence) {
+    const sortedArr = [head, ...sequence]
     sortedArr.sort((a, b) => a - b)
     const upperHalf = sortedArr.slice(sortedArr.indexOf(head))
     const lowerHalf = sortedArr.slice(0, sortedArr.indexOf(head))
