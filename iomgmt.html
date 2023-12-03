@@ -16,7 +16,7 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- <script src="io-management.js"></script> -->
+
 </head>
 
 <body class="pt-5">
@@ -45,43 +45,14 @@
             </div>
             <div class="col-sm-8">
                 <canvas id="ioChart" style="width: 50vw; height: 50vh;"></canvas>
+                <div class="text-center mt-3">Total Seek Time: <i id="totalSeekTime"></i></div>
             </div>
         </div>
-    </div>
-    
-    <script>
-        const ctx = document.getElementById('ioChart').getContext('2d');
-        const ioChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ioArray.map((_, index) => index.toString()),
-                datasets: [{
-                    label: 'Sorted Array',
-                    data: ioArray,
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 2,
-                    fill: false
-                }]
-            },
-            options: {
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Index'
-                        }
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: 'Value'
-                        }
-                    }
-                }
-            }
-        });
+    </div>    
 
-    </script>
+    <script src="chart-script.js"></script>
+
+    <script src="io-management.js"></script>
 </body>
 
 </html>
