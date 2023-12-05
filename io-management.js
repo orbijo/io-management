@@ -6,10 +6,6 @@ var seekTime
 function calculate(event) {
     event.preventDefault()
 
-    // const head = parseInt(prompt("Initial head position: "))
-    // const sequence = prompt("Enter request sequence (separated by spaces): ").split(" ").map(Number);
-    // const numTracks = 200;
-
     const head = parseInt(document.getElementById("head").value)
     const sequence = document.getElementById("sequence").value.split(" ").map(Number);
     numTracks = parseInt(document.getElementById("numTracks").value)
@@ -124,9 +120,11 @@ function totalSeekTime(arr) {
 
 function updateChart() {
     const ctx = document.getElementById('ioChart').getContext('2d');
+    let label = document.getElementById("algo").value.toUpperCase()
     ioChart.data.labels = ioArray.map((_, index) => index.toString());
     ioChart.data.datasets[0].data = ioArray;
     ioChart.options.scales.y.max = numTracks-1
+    ioChart.data.datasets[0].label = label
     ioChart.update();
 
     // Display total seek time on the chart
